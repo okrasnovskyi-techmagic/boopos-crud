@@ -1,10 +1,6 @@
 import { HTMLAttributes } from "react";
 
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  /* etc */
-}
-
-export default function Button(props: ButtonProps) {
+export default function Button(props: any) {
   const { children, ...rest } = props;
   return (
     <button
