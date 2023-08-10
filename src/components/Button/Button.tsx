@@ -1,6 +1,4 @@
-import { HTMLAttributes } from "react";
-
-export default function Button(props: any) {
+export function Button(props: any) {
   const { children, ...rest } = props;
   return (
     <button
@@ -11,3 +9,5 @@ export default function Button(props: any) {
     </button>
   );
 }
+
+export default Button;

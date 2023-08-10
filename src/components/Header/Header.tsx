@@ -4,7 +4,7 @@ type IHeader = {
   type?: "back";
 };
 
-export default function Header({ type }: IHeader) {
+export function Header({ type }: IHeader) {
   return (
     <header className="flex items-center justify-between pb-8">
       {type === "back" ? (
@@ -26,3 +26,5 @@ export default function Header({ type }: IHeader) {
     </header>
   );
 }
+
+export default Header;

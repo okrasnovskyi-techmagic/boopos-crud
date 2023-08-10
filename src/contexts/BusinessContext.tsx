@@ -1,13 +1,7 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-  ReactNode,
-  Dispatch,
-} from "react";
-import { CARD_STATUS, ICard } from "../types";
+import { createContext, useContext, useReducer, ReactNode } from "react";
+import { BUSINESS_STATUS, IBusiness } from "../types";
 
-const BusinessContext = createContext<ICard[] | null>(null);
+const BusinessContext = createContext<IBusiness[] | null>(null);
 
 const BusinessDispatchContext = createContext(null);
 
@@ -46,7 +40,7 @@ export type BusinessAction = {
   };
 };
 
-function businessReducer(business: ICard[], action: BusinessAction) {
+function businessReducer(business: IBusiness[], action: BusinessAction) {
   switch (action.type) {
     case BusinessActionType.ADD: {
       return [
@@ -56,7 +50,7 @@ function businessReducer(business: ICard[], action: BusinessAction) {
           name: action.payload.name,
           business_price: action.payload.business_price,
           loan_amount: action.payload.loan_amount,
-          status: CARD_STATUS.READY,
+          status: BUSINESS_STATUS.READY,
         },
       ];
     }
@@ -66,19 +60,19 @@ function businessReducer(business: ICard[], action: BusinessAction) {
   }
 }
 
-const initialBusiness: ICard[] = [
+const initialBusiness: IBusiness[] = [
   {
     id: 1,
     name: "Vitra",
     business_price: 1000000,
     loan_amount: 800000,
-    status: CARD_STATUS.READY,
+    status: BUSINESS_STATUS.READY,
   },
   {
     id: 2,
     name: "Your Monstera",
     business_price: 2000000,
     loan_amount: 1200000,
-    status: CARD_STATUS.INFO,
+    status: BUSINESS_STATUS.INFO,
   },
 ];

@@ -1,4 +1,4 @@
-import { CARD_STATUS, ICard } from "../../types";
+import { IBusiness, BUSINESS_STATUS } from "../../types";
 import { formatter } from "../../utils/currency";
 import Alert from "../Alert";
 
@@ -13,10 +13,10 @@ function Description({ title, amount }: { title: string; amount: number }) {
   );
 }
 
-export function Card({ name, business_price, loan_amount, status }: ICard) {
-  const renderAlert = (status: CARD_STATUS) => {
+export function Card({ name, business_price, loan_amount, status }: IBusiness) {
+  const renderAlert = (status: BUSINESS_STATUS) => {
     switch (status) {
-      case CARD_STATUS.READY: {
+      case BUSINESS_STATUS.READY: {
         return (
           <Alert
             status="info"
@@ -28,7 +28,7 @@ export function Card({ name, business_price, loan_amount, status }: ICard) {
           />
         );
       }
-      case CARD_STATUS.INFO: {
+      case BUSINESS_STATUS.INFO: {
         return (
           <Alert
             status="warning"

@@ -1,7 +1,6 @@
 import { Formik } from "formik";
 import Button from "../Button";
 import {
-  BusinessAction,
   BusinessActionType,
   useBusinessDispatch,
 } from "../../contexts/BusinessContext";
@@ -30,7 +29,7 @@ export function AddBusiness() {
           navigate("/");
         }}
       >
-        {({ values, handleSubmit, handleChange, handleBlur, isSubmitting }) => (
+        {({ handleSubmit, handleChange, handleBlur, isSubmitting }) => (
           <form onSubmit={handleSubmit} className="flex flex-col">
             <label>Name</label>
             <input
