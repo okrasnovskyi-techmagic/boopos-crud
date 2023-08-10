@@ -31,8 +31,9 @@ export function AddBusiness() {
       >
         {({ handleSubmit, handleChange, handleBlur, isSubmitting }) => (
           <form onSubmit={handleSubmit} className="flex flex-col">
-            <label>Name</label>
+            <label htmlFor="name">Name</label>
             <input
+              id="name"
               type="text"
               name="name"
               onChange={handleChange}
@@ -40,8 +41,9 @@ export function AddBusiness() {
               className="h-10 p-2 mb-6"
             />
 
-            <label>Business Price</label>
+            <label htmlFor="price">Business Price</label>
             <input
+              id="price"
               type="number"
               name="business_price"
               onChange={handleChange}
@@ -49,8 +51,9 @@ export function AddBusiness() {
               className="h-10 p-2 mb-6"
             />
 
-            <label>Loan Amount</label>
+            <label htmlFor="loan">Loan Amount</label>
             <input
+              id="loan"
               type="number"
               name="loan_amount"
               onChange={handleChange}
