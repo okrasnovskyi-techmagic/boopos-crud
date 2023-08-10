@@ -1,13 +1,34 @@
 import { Formik } from "formik";
 import Button from "../Button";
+import {
+  BusinessAction,
+  BusinessActionType,
+  useBusinessDispatch,
+} from "../../contexts/BusinessContext";
+import { useNavigate } from "react-router-dom";
 
 export function AddBusiness() {
+  const dispatch = useBusinessDispatch();
+  const navigate = useNavigate();
+
   return (
     <div className="max-w-sm mx-auto">
       <h1 className="mb-6 text-2xl font-bold">Add business</h1>
       <Formik
-        initialValues={{ name: "", price: 0, loan: 0 }}
-        onSubmit={(values) => console.log(values)}
+        initialValues={{ name: "", business_price: 0, loan_amount: 0 }}
+        onSubmit={(values) => {
+          // @ts-ignore
+          dispatch({
+            type: BusinessActionType.ADD,
+            payload: {
+              name: values.name,
+              business_price: values.business_price,
+              loan_amount: values.loan_amount,
+            },
+          });
+
+          navigate("/");
+        }}
       >
         {({ values, handleSubmit, handleChange, handleBlur, isSubmitting }) => (
           <form onSubmit={handleSubmit} className="flex flex-col">
@@ -23,7 +44,7 @@ export function AddBusiness() {
             <label>Business Price</label>
             <input
               type="number"
-              name="price"
+              name="business_price"
               onChange={handleChange}
               onBlur={handleBlur}
               className="h-10 p-2 mb-6"
@@ -32,7 +53,7 @@ export function AddBusiness() {
             <label>Loan Amount</label>
             <input
               type="number"
-              name="loan"
+              name="loan_amount"
               onChange={handleChange}
               onBlur={handleBlur}
               className="h-10 p-2 mb-6"

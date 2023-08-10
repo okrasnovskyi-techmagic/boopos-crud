@@ -8,5 +8,5 @@ export type ICard = {
   name: string;
   business_price: number;
   loan_amount: number;
-  status: CARD_STATUS;
+  status?: CARD_STATUS;
 };

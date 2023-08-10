@@ -52,7 +52,7 @@ export function Card({ name, business_price, loan_amount, status }: ICard) {
         <Description title="Business price" amount={business_price} />
         <Description title="Loan amount" amount={loan_amount} />
       </div>
-      {renderAlert(status)}
+      {status && renderAlert(status)}
     </div>
   );
 }
